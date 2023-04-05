@@ -1,0 +1,33 @@
+// SPDX-License-Identifier: MIT
+pragma solidity 0.8.18;
+
+contract MyToken {
+    // public variables here
+    string public tokenName = "ORCH";
+    string public tokenAbbrv = "OR";
+    uint public totalSupply = 0;
+
+    // mapping variable here
+    mapping(address => uint) public balances;
+
+    // mint function
+    function mint(address _address, uint _value) public {
+        totalSupply += _value;
+        balances[_address] += _value;
+    }
+
+    // burn function
+    function burn(address _address, uint _value) public {
+        if (balances[_address] >= _value) {
+            totalSupply -= _value;
+            balances[_address] -= _value;
+        }
+    }
+
+    // transfer function
+    function transfer(address _to, uint _value) public {
+        require(balances[msg.sender] >= _value, "Insufficent balance");
+        balances[msg.sender] -= _value;
+        balances[_to] += _value;
+    }
+}
