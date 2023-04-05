@@ -23,11 +23,4 @@ contract MyToken {
             balances[_address] -= _value;
         }
     }
-
-    // transfer function
-    function transfer(address _to, uint _value) public {
-        require(balances[msg.sender] >= _value, "Insufficent balance");
-        balances[msg.sender] -= _value;
-        balances[_to] += _value;
-    }
 }
