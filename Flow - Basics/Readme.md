@@ -36,8 +36,15 @@ Deploy the contract to a Flow emulator or testnet:
 # css
 
 Copy code
-flow project deploy --network emulator
+
+```css
+    flow project deploy --network emulator
+
 Run the example script to add a MyStruct to the array and retrieve it by index:
+
+```css
+flow project execute --network emulator --code scripts/example.cdc
+
 
 # Contributing
 
